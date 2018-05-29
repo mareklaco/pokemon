@@ -55,11 +55,11 @@ class App extends Component {
    * @param string pokemonName
    */
   apiLoadPokemon = (pokemonName) => {
-    const url = this.state.listData && this.state.listData.filter(p => p.name === pokemonName)[0].url
-    if (!url) {
+    const pokemon = this.state.listData && this.state.listData.find(p => p.name === pokemonName)
+    if (!pokemon) {
       return
     }
-    getRequest(url)
+    getRequest(pokemon.url)
       .then(responseObj => {
         if (responseObj) {
           let imageUrl
