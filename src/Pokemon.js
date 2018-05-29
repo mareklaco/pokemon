@@ -4,7 +4,7 @@ import * as PropTypes from 'prop-types'
 /**
  * Jeden pokemon
  *
- * Dostane data jedneho pomemona, toho zobrazi.
+ * Dostane a zobrazi data jedneho pokemona.
  */
 class Pokemon extends PureComponent {
 
@@ -19,9 +19,16 @@ class Pokemon extends PureComponent {
     const {pokemon} = this.props
     return (
       <div className="Pokemon">
-        Pokemon<br/>
-        name: {pokemon.name}<br/>
-        imageUrl: {pokemon.imageUrl}<br/>
+        <h2 className="Pokemon__Name">
+          {pokemon.name}
+        </h2>
+        {(!!pokemon.imageUrl) && (
+          <img
+            className="Pokemon__Image"
+            src={pokemon.imageUrl}
+            title={pokemon.name}
+            alt={pokemon.name}/>
+        )}
       </div>
     )
   }

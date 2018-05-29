@@ -22,10 +22,18 @@ class List extends PureComponent {
   render() {
     const {list} = this.props
     return (
-      <div className="List">
-        List<br/>
-        {list.map(p => p.name).join(', ')}
-      </div>
+      <ul className="List">
+        {list.map(p => (
+          <li
+            key={p.name}
+            onClick={() => this.props.onClick(p.name)}
+            className={"List__Item" + (p.name === this.props.selectedPokemnonName) ? 'List__Item--selected' : ''}
+          >
+            {(p.name === this.props.selectedPokemnonName) ? '[X] ' : '[ ] '}
+            {p.name}
+          </li>
+        ))}
+      </ul>
     )
   }
 }
