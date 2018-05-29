@@ -1,7 +1,13 @@
+html, body {
+  height: 100%;
+}
+
 body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
-  background-color: white;
-  color: #444;
+  background-color: #eee;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

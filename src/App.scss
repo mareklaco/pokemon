@@ -1,2 +1,65 @@
+$baseColor: #F67532;
+
 .App {
+  background-color: white;
+  width: 600px;
+  min-height: 450px;
+
+  display: flex;
+  position: relative;
+
+  border: 1px solid #dddd;
+  border-radius: 8px;
+  padding: 10px;
+
+  &__Loading {
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: $baseColor;
+    padding: 5px;
+  }
+
+  &--isLoading {
+    cursor: wait;
+    & * {
+      cursor: wait !important;
+    }
+  }
+
+  .List {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 200px;
+
+    &__Item {
+      color: $baseColor;
+      background-color: #eee;
+      margin: 5px 0;
+      padding: 5px 10px;
+      cursor: pointer;
+      font-weight: bold;
+
+      &:hover {
+        background-color: darken(#eee, 5%);
+      }
+
+      &--selected, &--selected:hover {
+        background-color: $baseColor;
+        color: white;
+      }
+    }
+  }
+
+  .Pokemon {
+    width: 400px;
+    text-align: center;
+
+    &__Name {
+      color: $baseColor;
+    }
+  }
+
 }
+

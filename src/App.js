@@ -106,7 +106,7 @@ class App extends Component {
       && this.state.pokemonData
     const isLoading = !this.state.listData || (this.state.selectedPokemonName && !pokemonToShow)
     return (
-      <div className="App">
+      <div className={"App " + (isLoading ? 'App--isLoading' : '')}>
 
         {(this.state.listData) && (
           <List

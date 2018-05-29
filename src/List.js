@@ -27,9 +27,8 @@ class List extends PureComponent {
           <li
             key={p.name}
             onClick={() => this.props.onClick(p.name)}
-            className={"List__Item" + (p.name === this.props.selectedPokemnonName) ? 'List__Item--selected' : ''}
+            className={"List__Item " + ((p.name === this.props.selectedPokemnonName) ? 'List__Item--selected' : '')}
           >
-            {(p.name === this.props.selectedPokemnonName) ? '[X] ' : '[ ] '}
             {p.name}
           </li>
         ))}
