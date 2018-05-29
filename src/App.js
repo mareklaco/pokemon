@@ -19,9 +19,9 @@ class App extends Component {
      */
     selectedPokemonName: undefined,
     /**
-     * shape ako Pokemon.propTypes.pokemon
+     * values objektu maju shape ako Pokemon.propTypes.pokemon
      */
-    pokemonData: undefined,
+    pokemonDataByName: undefined,
     /**
      * shape ako List.propTypes.list
      */
@@ -68,10 +68,14 @@ class App extends Component {
           if (sprite) {
             imageUrl = responseObj.sprites[sprite]
           }
+          const pokemonData = {
+            name: responseObj.name,
+            imageUrl
+          }
           this.setState({
-            pokemonData: {
-              name: responseObj.name,
-              imageUrl
+            pokemonDataByName: {
+              ...this.state.pokemonDataByName,
+              [pokemonData.name]: pokemonData
             }
           })
         }
@@ -101,9 +105,8 @@ class App extends Component {
 
   render() {
     const pokemonToShow = this.state.selectedPokemonName
-      && this.state.pokemonData
-      && (this.state.pokemonData.name === this.state.selectedPokemonName)
-      && this.state.pokemonData
+      && this.state.pokemonDataByName
+      && (this.state.pokemonDataByName[this.state.selectedPokemonName])
     const isLoading = !this.state.listData || (this.state.selectedPokemonName && !pokemonToShow)
     return (
       <div className={"App " + (isLoading ? 'App--isLoading' : '')}>
